@@ -58,4 +58,13 @@ public class LambdaPractice {
      * 在TestLambda类中声明方法，使用接口作为参数，计算两个long型参数的和
      * 再计算两个long型参数的乘积
      */
+    public void operation(Long l1,Long l2,Practice4<Long,Long> p4){
+        System.out.println(p4.getValue(l1,l2));
+    }
+    @Test
+    public void test3(){
+        operation(1000L,2000L,(l1,l2) -> l1+l2);
+
+        operation(1000L,2000L,(l1,l2) -> l1*l2);
+    }
 }
