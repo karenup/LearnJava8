@@ -48,7 +48,7 @@ public class TestLambda3 {
     //需求：将满足条件的字符串添加到集合中
     public List<String> filterStr(List<String> l, Predicate<String> pre){
         List<String> list = new ArrayList<>();
-        for(String s: l){
+        for (String s:  l) {
             if(pre.test(s)){
                 list.add(s);
             }
