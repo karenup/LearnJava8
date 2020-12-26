@@ -1,11 +1,23 @@
 package lambda;
 
+import com.sun.org.apache.xerces.internal.util.Status;
+
 import java.util.Objects;
 
 public class Employee {
     private String name;
     private int age;
     private double salary;
+
+    public Employee.Status getStatus() {
+        return Status;
+    }
+
+    public void setStatus(Employee.Status status) {
+        Status = status;
+    }
+
+    private Status Status;
 
     public Employee(){}
     public Employee(int age){
@@ -21,19 +33,17 @@ public class Employee {
         this.salary = salary;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Employee employee = (Employee) o;
-        return age == employee.age &&
-                Double.compare(employee.salary, salary) == 0 &&
-                name.equals(employee.name);
+    public Employee(String name, int age, double salary, Employee.Status status) {
+        this.name = name;
+        this.age = age;
+        this.salary = salary;
+        Status = status;
     }
 
+
     @Override
-    public int hashCode() {
-        return Objects.hash(name, age, salary);
+    public String toString() {
+        return "Employee [name="+name+", age="+age+", salary="+salary+", Status="+Status+"]";
     }
 
     public String getName() {
@@ -58,5 +68,11 @@ public class Employee {
 
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+    public enum Status{
+        FREE,
+        BUSY,
+        VOCATION
     }
 }
